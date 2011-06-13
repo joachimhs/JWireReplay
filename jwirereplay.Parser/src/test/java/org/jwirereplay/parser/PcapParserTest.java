@@ -12,7 +12,7 @@ public class PcapParserTest {
 	@Before
 	public void setup() throws PcapParseException {
 		pcapParser = new PCapParser();
-		pcapParser.openFile("/Volumes/Mac_Developer/testdump.cap");
+		pcapParser.openFile("/Users/joahaa/Projects/JWireReplay/testdump.cap");
 	}
 	
 	@Test

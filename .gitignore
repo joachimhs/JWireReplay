@@ -1,0 +1,9 @@
+.idea
+target
+*.iml
+jwirereplay.Web/src/main/webapp/eurekaJView
+jwirereplay.Web/src/main/webapp/static
+jwirereplay.View/build
+tmp
+*.ipr
+*.iws
