@@ -1,0 +1,5 @@
+JWireReplay will parse the .pcap file format (created with tcpdump), analyse each and every TCP/IP packet within that captured file, organize each full HTTP request according to a specified sessionID (jsessionid for Java apps). After a .pcap file is imported JWireReplay will be able to replay that exact TCP/IP traffic to a specifies remote host. JWireReplay will also be able to play back the imported packets faster than originally captures. 
+
+The objective is to both be able to analyze tough and hidden bugs that appear in your production environment, as well as being able to replay that same traffic to a test environment both for further analysis and for verifying that the bug has been successfully squashed. It is also possible to load-test your test environment using <b>Real HTTP traffic as captured from your production environment</b> in a reliable, repeatable manner. 
+
+The project is currently in very early alpha. 
