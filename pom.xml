@@ -8,7 +8,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <jetty.version>7.4.2.v20110526</jetty.version>
+        <jetty.version>8.0.1.v20110908</jetty.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
