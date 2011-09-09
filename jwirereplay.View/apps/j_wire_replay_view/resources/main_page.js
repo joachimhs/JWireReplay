@@ -7,18 +7,32 @@
 // This page describes the main user interface for your application.  
 JWireReplayView.mainPage = SC.Page.design({
 
-  // The main pane is made visible on screen as soon as your app is loaded.
-  // Add childViews to this pane for views to display immediately on page 
-  // load.
-  mainPane: SC.MainPane.design({
-    childViews: 'labelView'.w(),
-    
-    labelView: SC.LabelView.design({
-      layout: { centerX: 0, centerY: 0, width: 200, height: 18 },
-      textAlign: SC.ALIGN_CENTER,
-      tagName: "h1", 
-      value: "Welcome to SproutCore!"
-    })
-  })
+	topView : SC.outlet('mainPane.topView'),
+	mainTabView: SC.outlet('mainPane.mainTabView'),
+	
+	mainPane : SC.MainPane.design({
+		childViews : 'topView mainTabView'.w(),
+
+		topView : JWireReplayView.TopView.design({
+			isVisible : NO,
+			layout : {
+				top : 0,
+				left : 0,
+				right : 0,
+				height : 45
+			},
+			anchorLocation : SC.ANCHOR_TOP
+		}).classNames('whiteBackground'),
+
+		mainTabView : JWireReplayView.MainTabView.design({
+			isVisible : NO,
+			layout : {
+				top : 45,
+				left : 0,
+				right : 0,
+				bottom : 0
+			}
+		}).classNames('whiteBackground')
+	})
 
 });

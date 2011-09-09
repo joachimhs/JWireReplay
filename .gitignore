@@ -7,3 +7,6 @@ jwirereplay.View/build
 tmp
 *.ipr
 *.iws
+.project
+.settings
+.classpath
