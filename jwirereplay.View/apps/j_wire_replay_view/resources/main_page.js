@@ -9,8 +9,9 @@ JWireReplayView.mainPage = SC.Page.design({
 
 	topView : SC.outlet('mainPane.topView'),
 	mainTabView: SC.outlet('mainPane.mainTabView'),
-	
+	importTabView: SC.outlet('mainPane.mainTabView.tabView'),
 	mainPane : SC.MainPane.design({
+		defaultResponder: JWireReplayView,
 		childViews : 'topView mainTabView'.w(),
 
 		topView : JWireReplayView.TopView.design({

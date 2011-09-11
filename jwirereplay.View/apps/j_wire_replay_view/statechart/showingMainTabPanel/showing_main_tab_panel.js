@@ -1,5 +1,5 @@
 JWireReplayView.showingMainTabPanel = SC.State.extend({
-    initialSubstate: 'ready',
+    initialSubstate: 'showImportPanel',
 
     enterState: function() {
         JWireReplayView.mainPage.get('mainTabView').set('isVisible', YES);
@@ -11,7 +11,22 @@ JWireReplayView.showingMainTabPanel = SC.State.extend({
         SC.Logger.log('exited showTopMenu');
     },
 
-    ready: SC.State.design({
+    showImportPanel: SC.State.design({
+        initialSubstate: 'showProjectList',
         
-    })
+        enterState: function() {
+        	JWireReplayView.projectListController.set('content', JWireReplayView.JWireReplayStore.find(JWireReplayView.ProjectModel));
+        	SC.Logger.log('entered showImportPanel');
+        },
+        
+        exitState: function() {
+        	SC.Logger.log('exited showImportPanel');
+        },
+        
+        showProjectList: SC.State.design({
+        	
+        })
+    }),
+    
+    
 });
