@@ -49,6 +49,6 @@ JWireReplayView.ProjectConfigMainView = SC.View.extend(
 
     projectContentView: JWireReplayView.ProjectConfigItemView.extend({
     	layout: {top: 20, bottom: 0, right: 0, left: 215},
-    	isVisibleBinding: 'JWireReplayView.projectListController.showProjectContents'
+    	isVisible: NO
     })
 });

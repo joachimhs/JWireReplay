@@ -4,6 +4,10 @@ JWireReplayView.showingProjectConfigurationView = SC.State.extend({
     showProjectConfigPanel: SC.State.design({
         initialSubstate: 'showProjectList',
         
+        showSelectedProjectAction: function() {
+            this.gotoState('showingSelectedProject');
+        },
+        
         enterState: function() {
         	JWireReplayView.mainPage.get('projectConfigView').set('isVisible', YES);
         	
@@ -19,7 +23,19 @@ JWireReplayView.showingProjectConfigurationView = SC.State.extend({
         
         showProjectList: SC.State.design({
         	
+        }), 
+        
+        showingSelectedProject: SC.State.design({
+        	enterState: function() {
+        		SC.Logger.log('enterState: showingSelectedProject')
+        		JWireReplayView.mainPage.get('projectConfigItemView').set('isVisible', YES);
+        	},
+        	
+        	exitState: function() {
+        		JWireReplayView.mainPage.get('projectConfigItemView').set('isVisible', NO);
+        	}
         })
+        
     }),
     
     

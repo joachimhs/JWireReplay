@@ -9,6 +9,7 @@ JWireReplayView.mainPage = SC.Page.design({
 
 	topView : SC.outlet('mainPane.topView'),
 	projectConfigView: SC.outlet('mainPane.projectConfigurationMainView'),
+	projectConfigItemView: SC.outlet('mainPane.projectConfigurationMainView.projectContentView'),
 	replayHttpTrafficView: SC.outlet('mainPane.replayHttpTrafficMainView'),
 	
 	mainPane : SC.MainPane.design({

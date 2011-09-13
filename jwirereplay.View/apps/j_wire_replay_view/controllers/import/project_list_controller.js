@@ -1,7 +1,6 @@
 JWireReplayView.projectListController = SC.ArrayController.create({
 	
 	newProjectName: null,
-	showProjectContents: NO,
 	allowsMultipleSelection: NO,
 	
 	newProjectIsValid: function() {
@@ -19,10 +18,10 @@ JWireReplayView.projectListController = SC.ArrayController.create({
     
     observesSelection: function(){
         if (this.getPath('selection.firstObject.projectName')  != undefined) {
-            this.set('showProjectContents', YES);
+            JWireReplayView.showingSelectedProjectAction();
         	//SC.Logger.log('alertAdministrationController Setting selection: ' + this.getPath('selection.firstObject.alertInstrumentationNode'));
        } else {
-            this.set('showProjectContents', NO);
+            JWireReplayView.selectProjectConfiguration();
         }
     }.observes('selection')
 	

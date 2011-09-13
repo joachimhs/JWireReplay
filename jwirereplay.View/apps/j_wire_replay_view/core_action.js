@@ -21,5 +21,10 @@ JWireReplayView.mixin( {
 	selectReplayHttpTraffic: function() {
 		SC.Logger.log('selectReplayHttpTraffic');
 		JWireReplayView.statechart.sendEvent('showReplayHttpTrafficAction');
+	},
+	
+	showingSelectedProjectAction: function() {
+		SC.Logger.log('showingSelectedProjectAction');
+		JWireReplayView.statechart.sendEvent('showSelectedProjectAction');
 	}
 });
