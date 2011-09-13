@@ -1,4 +1,4 @@
-JWireReplayView.ImportTabView = SC.View.extend(
+JWireReplayView.ProjectConfigMainView = SC.View.extend(
 {
 	childViews: 'newProjectView projectSelectionScrollView deleteProjectButtonView projectContentView'.w(),
     layout: {
@@ -47,22 +47,8 @@ JWireReplayView.ImportTabView = SC.View.extend(
         //action: 'EurekaJView.deleteSelectedAlertAction'
     }),
 
-    projectContentView: SC.View.extend({
-    	childViews: 'labelView saveAlertButtonView'.w(),
-    	isVisibleBinding: 'JWireReplayView.projectListController.showProjectContents',
-        //isVisibleBinding: 'EurekaJView.alertAdministrationController.showEditAlertView',
-        layout: {top: 20, bottom: 0, right: 0, left: 215},
-        
-        labelView: SC.LabelView.extend({
-        	layout: {top: 0, bottom: 0, left: 0, right: 0},
-        	valueBinding: "JWireReplayView.selectedProjectController.projectName",
-        }),
-
-        saveAlertButtonView: SC.ButtonView.design({
-            layout: {right: 10, width: 150, bottom: 10, height: 25},
-            title: "Save Project",
-            //action: "EurekaJView.saveAlertsAction"
-        })
-
+    projectContentView: JWireReplayView.ProjectConfigItemView.extend({
+    	layout: {top: 20, bottom: 0, right: 0, left: 215},
+    	isVisibleBinding: 'JWireReplayView.projectListController.showProjectContents'
     })
 });

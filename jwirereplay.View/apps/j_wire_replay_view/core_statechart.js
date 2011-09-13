@@ -1,14 +1,33 @@
 JWireReplayView.statechart = SC.Statechart.create({
 
     rootState: SC.State.design({
-        substatesAreConcurrent: YES,
-
+        substatesAreConcurrent: NO,
+        initialSubstate: 'ready',        
+        
+        ready: SC.State.design({
+        	
+        }),
+        
         enterState: function() {
-            //EurekaJView.EurekaJStore.find(EurekaJView.LOGGED_IN_USER_QUERY);
+            JWireReplayView.mainPage.get('topView').set('isVisible', YES);
+            SC.Logger.log('entered showTopMenu');
+        },
+
+        exitState: function() {
+        	JWireReplayView.mainPage.get('topView').set('isVisible', NO);
+            SC.Logger.log('exited showTopMenu');
         },
         
-        showingTopPanel: SC.State.plugin('JWireReplayView.showingTopPanel'),
+        showProjectConfigPanelAction: function() {
+            this.gotoState('showingProjectConfigurationView');
+        },
+        
+        showReplayHttpTrafficAction: function() {
+            this.gotoState('selectReplayHttpTrafficView');
+        },
 
-        showingMainTabPanel: SC.State.plugin('JWireReplayView.showingMainTabPanel')
+        showingProjectConfigurationView: SC.State.plugin('JWireReplayView.showingProjectConfigurationView'),
+        
+        selectReplayHttpTrafficView: SC.State.plugin('JWireReplayView.showingReplayHttpTrafficView')
     })
 });

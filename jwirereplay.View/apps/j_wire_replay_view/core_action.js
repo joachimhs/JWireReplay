@@ -11,5 +11,15 @@ JWireReplayView.mixin( {
 	              caption: "Try changing the name of the Project."
 	            });
 		}
+	},
+	
+	selectProjectConfiguration: function() {
+		SC.Logger.log('selectProjectConfiguration');
+		JWireReplayView.statechart.sendEvent('showProjectConfigPanelAction');
+	},
+	
+	selectReplayHttpTraffic: function() {
+		SC.Logger.log('selectReplayHttpTraffic');
+		JWireReplayView.statechart.sendEvent('showReplayHttpTrafficAction');
 	}
 });
