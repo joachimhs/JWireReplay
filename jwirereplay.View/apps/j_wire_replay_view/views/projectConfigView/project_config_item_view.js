@@ -35,9 +35,9 @@ JWireReplayView.ProjectConfigItemView = SC.View.extend({
         	allowsMultipleSelection: NO,
         	
             backgroundColor: '#F0F8FF',
-            contentBinding: 'JWireReplayView.projectListController.arrangedObjects',
-            selectionBinding: 'JWireReplayView.projectListController.selection',
-            contentValueKey: "projectName",
+            contentBinding: 'JWireReplayView.selectedCapfileController.arrangedObjects',
+            selectionBinding: 'JWireReplayView.selectedCapfileController.selection',
+            contentValueKey: "capfileName",
             //selectionDelegate: EurekaJView.alertSelectionDelegate,
         })
     }),
@@ -51,8 +51,8 @@ JWireReplayView.ProjectConfigItemView = SC.View.extend({
     
     logonUrlTextFieldView: SC.TextFieldView.extend({
         layout: {top: 275, left: 0, height: 25, right: 50},
-        //contentBinding: 'EurekaJView.editAlertController',
-        //contentValueKey: "alertErrorValue" 
+        contentBinding: 'JWireReplayView.selectedProjectController',
+        contentValueKey: "logonUrl" 
     }),
     
     sessionIdLabelView: SC.LabelView.extend({
@@ -64,19 +64,19 @@ JWireReplayView.ProjectConfigItemView = SC.View.extend({
     
     sessionIdTextFieldView: SC.TextFieldView.extend({
         layout: {top: 325, left: 0, height: 25, right: 50},
-        //contentBinding: 'EurekaJView.editAlertController',
-        //contentValueKey: "alertErrorValue" 
+        contentBinding: 'JWireReplayView.selectedProjectController',
+        contentValueKey: "sessionIdentifierKey" 
     }),
     
     throwAwayCheckboxView: SC.CheckboxView.extend({
         layout: {top: 350, right: 50, left: 0, height: 25},
-        //contentBinding: 'EurekaJView.editEmailGroupController',
-        //contentValueKey: "smtpUseSSL"
+        contentBinding: 'JWireReplayView.selectedProjectController',
+        contentValueKey: "throwArayPacketsWithoutSessionID",
         title: 'Throw away packets w/o a Session Identifier'
     }),
 
     saveAlertButtonView: SC.ButtonView.design({
-        layout: {right: 50, left: 10, bottom: 10, height: 25},
+        layout: {right: 50, left: 10, bottom: 0, height: 25},
         title: "Save changes to project",
         //action: "EurekaJView.saveAlertsAction"
     })
