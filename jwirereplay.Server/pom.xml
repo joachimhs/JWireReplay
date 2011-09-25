@@ -40,12 +40,12 @@
 				</property>
 			</activation>
 			<build>
-				<finalName>eurekaJ.managerServer</finalName>
+				<finalName>jwirereplay.server</finalName>
 				<plugins>
 					<plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>appassembler-maven-plugin</artifactId>
-                        <version>1.1.1</version>
+                        <version>1.0-alpha-2</version>
 						<executions>
 							<execution>
 								<goals>
@@ -88,12 +88,43 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>org.jwirereplay</groupId>
+			<artifactId>jwirereplay.Web</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-servlets</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-jmx</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-xml</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-webapp</artifactId>
 		</dependency>
 	</dependencies>
 </project>

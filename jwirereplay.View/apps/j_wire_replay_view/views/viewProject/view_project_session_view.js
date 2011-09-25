@@ -29,14 +29,19 @@ JWireReplayView.ViewProjectSessionView = SC.View.extend({
                           width: 60
                       }),
                       SC.TableColumn.create({
+                          key: 'initialURL',
+                          label: 'Initial URL',
+                          width: 200
+                      }),
+                      SC.TableColumn.create({
                           key: 'firstRequestTimestamp',
                           label: 'Session Start Date',
-                          width: 200
+                          width: 150
                       }),
                       SC.TableColumn.create({
                           key: 'lastRequestTimestamp',
                           label: 'Session End Date',
-                          width: 200
+                          width: 150
                       })
                   ]
         })
