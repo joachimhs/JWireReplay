@@ -26,5 +26,15 @@ JWireReplayView.mixin( {
 	showingSelectedProjectAction: function() {
 		SC.Logger.log('showingSelectedProjectAction');
 		JWireReplayView.statechart.sendEvent('showSelectedProjectAction');
+	},
+	
+	addSelectedCapFilesToProject: function() {
+		SC.Logger.log('addSelectedCapFilesToProject'),
+		JWireReplayView.statechart.sendEvent('addSelectedCapFilesToProjectAction');
+	},
+	
+	removeSelectedCapFilesToProject: function() {
+		SC.Logger.log('removeSelectedCapFilesToProject'),
+		JWireReplayView.statechart.sendEvent('removeSelectedCapFilesToProjectAction');
 	}
 });

@@ -12,6 +12,9 @@ JWireReplayView.showingProjectConfigurationView = SC.State.extend({
         	JWireReplayView.mainPage.get('projectConfigView').set('isVisible', YES);
         	
         	JWireReplayView.projectListController.set('content', JWireReplayView.JWireReplayStore.find(JWireReplayView.ProjectModel));
+        	
+        	JWireReplayView.capfileListController.set('content', JWireReplayView.JWireReplayStore.find(JWireReplayView.CapFileModel));
+        	
         	SC.Logger.log('entered showProjectConfigPanel');
         },
         
@@ -33,6 +36,25 @@ JWireReplayView.showingProjectConfigurationView = SC.State.extend({
         	
         	exitState: function() {
         		JWireReplayView.mainPage.get('projectConfigItemView').set('isVisible', NO);
+        	},
+        	
+        	addSelectedCapFilesToProjectAction: function() {
+        		SC.Logger.log('addSelectedCapFilesToProjectAction');
+        		var selectedCapFiles = JWireReplayView.capfileListController.selection();
+        		
+        		selectedCapFiles.forEach(function(capfile) {
+        			JWireReplayView.selectedProjectController.get('importNewCapFiles').pushObject(capfile);
+        		}, this);
+        		
+        		JWireReplayView.capfileListController.set('selection', null);
+        	},
+        	
+        	removeSelectedCapFilesToProjectAction: function() {
+        		var selectedCapFiles = JWireReplayView.selectedCapfileController.selection();
+        		
+        		selectedCapFiles.forEach(function(capfile) {
+        			JWireReplayView.selectedProjectController.get('importNewCapFiles').removeObject(capfile);        			
+        		}, this);
         	}
         })
         

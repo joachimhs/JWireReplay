@@ -7,7 +7,10 @@ JWireReplayView.ProjectConfigItemView = SC.View.extend({
 	             'sessionIdLabelView', 
 	             'sessionIdTextFieldView',  
 	             'throwAwayCheckboxView', 
-	             'saveAlertButtonView'],
+	             'saveAlertButtonView',
+	             'selectedCapfileScrollView',
+	             'addSelectedCapFilesButton',
+	             'removeSeletedCapFilesButton'],
 	             
 	layout: {top: 0, bottom: 0, left: 5, right: 5},
         
@@ -27,7 +30,23 @@ JWireReplayView.ProjectConfigItemView = SC.View.extend({
     }),
     
     capfileSelectionScrollView: SC.ScrollView.design({
-        layout: {top: 50, height: 200, left: 0, right: 50 },
+        layout: {top: 50, height: 200, left: 0, width: 300 },
+        hasHorizontalScroller: YES,
+        hasVerticalScroller: YES,
+
+        contentView: SC.ListView.extend({
+        	allowsMultipleSelection: NO,
+        	
+            backgroundColor: '#F0F8FF',
+            contentBinding: 'JWireReplayView.capfileListController.arrangedObjects',
+            selectionBinding: 'JWireReplayView.capfileListController.selection',
+            contentValueKey: "capfileName",
+            //selectionDelegate: EurekaJView.alertSelectionDelegate,
+        })
+    }),
+    
+    selectedCapfileScrollView: SC.ScrollView.design({
+        layout: {top: 50, height: 200, width: 300, right: 50 },
         hasHorizontalScroller: YES,
         hasVerticalScroller: YES,
 
@@ -40,6 +59,18 @@ JWireReplayView.ProjectConfigItemView = SC.View.extend({
             contentValueKey: "capfileName",
             //selectionDelegate: EurekaJView.alertSelectionDelegate,
         })
+    }),
+    
+    addSelectedCapFilesButton: SC.ButtonView.design({
+    	layout: {top: 115, height: 25, width: 100, left: 305 },
+    	title: "Select >>",
+    	action: 'JWireReplayView.addSelectedCapFilesToProject'
+    }),
+    
+    removeSeletedCapFilesButton: SC.ButtonView.design({
+    	layout: {top: 140, height: 25, width: 100, left: 305 },
+    	title: "<< Remove",
+    	action: 'JWireReplayView.removeSelectedCapFilesToProject'
     }),
     
     loginUrlLabelView: SC.LabelView.extend({

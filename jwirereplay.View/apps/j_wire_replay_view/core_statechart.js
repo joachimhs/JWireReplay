@@ -10,12 +10,14 @@ JWireReplayView.statechart = SC.Statechart.create({
         
         enterState: function() {
             JWireReplayView.mainPage.get('topView').set('isVisible', YES);
-            SC.Logger.log('entered showTopMenu');
+            JWireReplayView.mainPage.get('taskView').set('isVisible', YES);
+            SC.Logger.log('showing top and task views');
         },
 
         exitState: function() {
         	JWireReplayView.mainPage.get('topView').set('isVisible', NO);
-            SC.Logger.log('exited showTopMenu');
+        	JWireReplayView.mainPage.get('taskView').set('isVisible', NO);
+            SC.Logger.log('hiding top and task views');
         },
         
         showProjectConfigPanelAction: function() {

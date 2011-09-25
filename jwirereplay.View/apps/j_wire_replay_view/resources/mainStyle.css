@@ -81,6 +81,10 @@
     background: #fff;
 }
 
+.blueBackground {
+	background: #f0f8ff;
+}
+
 /* >>>>>>>>>> BEGIN source/table.css */
 .sc-theme .sc-table-header {
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#e6e6e6));

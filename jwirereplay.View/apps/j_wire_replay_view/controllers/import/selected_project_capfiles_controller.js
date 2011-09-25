@@ -1,3 +1,3 @@
 JWireReplayView.selectedCapfileController = SC.ArrayController.create({
-	contentBinding: 'JWireReplayView.selectedProjectController.importedCapFiles'
+	contentBinding: 'JWireReplayView.selectedProjectController.importNewCapFiles'
 });
