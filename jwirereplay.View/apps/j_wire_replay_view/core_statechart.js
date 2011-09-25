@@ -11,6 +11,7 @@ JWireReplayView.statechart = SC.Statechart.create({
         enterState: function() {
             JWireReplayView.mainPage.get('topView').set('isVisible', YES);
             JWireReplayView.mainPage.get('taskView').set('isVisible', YES);
+            JWireReplayView.taskListController.set('content', JWireReplayView.JWireReplayStore.find(JWireReplayView.TaskModel));
             SC.Logger.log('showing top and task views');
         },
 
