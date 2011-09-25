@@ -28,9 +28,15 @@ JWireReplayView.statechart = SC.Statechart.create({
         showReplayHttpTrafficAction: function() {
             this.gotoState('selectReplayHttpTrafficView');
         },
+        
+        selectViewProjectAction: function() {
+        	 this.gotoState('showingViewProjectView');
+        },
 
         showingProjectConfigurationView: SC.State.plugin('JWireReplayView.showingProjectConfigurationView'),
         
-        selectReplayHttpTrafficView: SC.State.plugin('JWireReplayView.showingReplayHttpTrafficView')
+        selectReplayHttpTrafficView: SC.State.plugin('JWireReplayView.showingReplayHttpTrafficView'),
+        
+        showingViewProjectView: SC.State.plugin('JWireReplayView.showingViewProjectView')
     })
 });

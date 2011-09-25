@@ -19,7 +19,6 @@ JWireReplayView.projectListController = SC.ArrayController.create({
     observesSelection: function(){
         if (this.getPath('selection.firstObject.projectName')  != undefined) {
             JWireReplayView.showingSelectedProjectAction();
-        	//SC.Logger.log('alertAdministrationController Setting selection: ' + this.getPath('selection.firstObject.alertInstrumentationNode'));
        } else {
             JWireReplayView.selectProjectConfiguration();
         }

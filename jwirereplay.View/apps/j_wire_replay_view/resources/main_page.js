@@ -11,11 +11,13 @@ JWireReplayView.mainPage = SC.Page.design({
 	projectConfigView: SC.outlet('mainPane.projectConfigurationMainView'),
 	projectConfigItemView: SC.outlet('mainPane.projectConfigurationMainView.projectContentView'),
 	replayHttpTrafficView: SC.outlet('mainPane.replayHttpTrafficMainView'),
+	viewProjectMainView: SC.outlet('mainPane.viewProjectMainView'),
+	selectedSessionView: SC.outlet('mainPane.viewProjectMainView.selectedSessionView'),
 	taskView: SC.outlet('mainPane.taskMainView'),
 	
 	mainPane : SC.MainPane.design({
 		defaultResponder: JWireReplayView,
-		childViews : 'topView projectConfigurationMainView replayHttpTrafficMainView taskMainView'.w(),
+		childViews : 'topView projectConfigurationMainView replayHttpTrafficMainView taskMainView viewProjectMainView'.w(),
 
 		topView : JWireReplayView.TopView.design({
 			isVisible : NO,
@@ -39,6 +41,16 @@ JWireReplayView.mainPage = SC.Page.design({
 		}).classNames('whiteBackground'),
 		
 		replayHttpTrafficMainView : JWireReplayView.replayHttpTrafficMainView.design({
+			isVisible : NO,
+			layout : {
+				top : 45,
+				left : 0,
+				right : 200,
+				bottom : 0
+			}
+		}).classNames('whiteBackground'),
+		
+		viewProjectMainView : JWireReplayView.ViewTabView.design({
 			isVisible : NO,
 			layout : {
 				top : 45,

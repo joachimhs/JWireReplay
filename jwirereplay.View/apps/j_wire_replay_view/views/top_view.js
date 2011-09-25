@@ -22,7 +22,7 @@ JWireReplayView.TopView = SC.View.extend(
     viewProjectContentsButtonView: SC.ButtonView.design({
     	layout: {left: 550, width: 150, top: 5, bottom: 5},
         title: "View Project",
-        //action: "JWireReplayView.selectProjectConfiguration"
+        action: "JWireReplayView.selectViewProject"
     }),
     
     administrationButtonView: SC.ButtonView.design({
