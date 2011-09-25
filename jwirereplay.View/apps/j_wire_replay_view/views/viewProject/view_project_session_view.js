@@ -15,19 +15,36 @@ JWireReplayView.ViewProjectSessionView = SC.View.extend({
         hasHorizontalScroller: YES,
         hasVerticalScroller: YES,
 
-        contentView: SC.ListView.extend({
-        	allowsMultipleSelection: NO,
-        	
-            backgroundColor: '#F0F8FF',
+        contentView: SC.TableView.extend({
+        	selectOnMouseDown: YES,
+        	exampleView: SC.TableRowView,
+            recordType: JWireReplayView.SessionModel,
+            
             contentBinding: 'JWireReplayView.projectSessionListController.arrangedObjects',
             selectionBinding: 'JWireReplayView.projectSessionListController.selection',
-            contentValueKey: "sessionNumber"
+            columns: [
+                      SC.TableColumn.create({
+                          key: 'sessionNumber',
+                          label: 'Session Number',
+                          width: 60
+                      }),
+                      SC.TableColumn.create({
+                          key: 'firstRequestTimestamp',
+                          label: 'Session Start Date',
+                          width: 200
+                      }),
+                      SC.TableColumn.create({
+                          key: 'lastRequestTimestamp',
+                          label: 'Session End Date',
+                          width: 200
+                      })
+                  ]
         })
     }),
     
     packetHeadlineLabelView: SC.LabelView.extend({
     	layout: {top: 220, height: 15, left: 0, right: 0},
-    	value: "Session List for selected project",
+    	value: "Packet List for selected session",
     	controlSize: SC.NORMAL_CONTROL_SIZE,
     	textAlign: SC.ALIGN_LEFT,
     	fontWeight: SC.BOLD_WEIGHT,
@@ -42,6 +59,7 @@ JWireReplayView.ViewProjectSessionView = SC.View.extend({
         	exampleView: SC.TableRowView,
             recordType: JWireReplayView.PacketModel,
             contentBinding: 'JWireReplayView.viewPacketListController.arrangedObjects',
+            selectOnMouseDown: YES,
             
             columns: [
                       SC.TableColumn.create({
