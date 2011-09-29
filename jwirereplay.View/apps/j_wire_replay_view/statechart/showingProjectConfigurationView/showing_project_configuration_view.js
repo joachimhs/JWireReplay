@@ -9,6 +9,8 @@ JWireReplayView.showingProjectConfigurationView = SC.State.extend({
         },
         
         enterState: function() {
+        	JWireReplayView.projectListController.set('selection', null);
+        	
         	JWireReplayView.mainPage.get('projectConfigView').set('isVisible', YES);
         	
         	JWireReplayView.projectListController.set('content', JWireReplayView.JWireReplayStore.find(JWireReplayView.ProjectModel));

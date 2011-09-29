@@ -1,30 +1,28 @@
-JWireReplayView.PacketModel = SC.Record.extend({
+JWireReplayView.ProjectModel = SC.Record.extend({
 
-	primaryKey : 'projectSessionID',
-	projectSessionID : SC.Record.attr(String),
+	primaryKey : 'projectName',
 	projectName : SC.Record.attr(String),
-	sessionNumber : SC.Record.attr(Number),
-	sessionID : SC.Record.attr(String),
-	firstRequestTimestamp : SC.Record.attr(Date),
-	lastRequestTimestamp : SC.Record.attr(Date),
-	initialURL : SC.Record.attr(String)
-	//packetList : SC.Record.toMany('JWireReplayView.PacketModel', {isMaster: YES})
+	importedCapFiles : SC.Record.toMany('JWireReplayView.CapFileModel', {isMaster: YES}),
+	importNewCapFiles : SC.Record.toMany('JWireReplayView.CapFileModel', {isMaster: YES}),
+	sessionIdentifierKey : SC.Record.attr(String),
+	logonUrl : SC.Record.attr(String),
+	throwArayPacketsWithoutSessionID: SC.Record.attr(Boolean),
+	sessionList : SC.Record.toMany('JWireReplayView.SessionModel', {isMaster: YES})
 });
 
-JWireReplayView.PacketModel.FIXTURES = [
-	 	{	"projectSessionID": "Project 1_1",
-	 		"projectName" : "Project 1",
- 			"sessionNumber" : 1,
- 			"sessionID" : "afhilefaelijaeaera",
- 			"firstRequestTimestamp" : 1316949176,
- 			"lastRequestTimestamp" : 1316969176,
- 			"initialURL": "http://site.com/login.html"},
-		{	"projectSessionID": "Project 1_2",
-	 		"projectName" : "Project 1",
- 			"sessionNumber" : 2,
- 			"sessionID" : "afaefeaifjefieajfe",
- 			"firstRequestTimestamp" : 1316959176,
- 			"lastRequestTimestamp" : 1316979176,
- 			"initialURL": "http://site.com/login.html"}
-
+JWireReplayView.ProjectModel.FIXTURES = [
+	 	{	"projectName" : "Project 1",
+ 			"sessionIdentifierKey" : "jsessionid",
+ 			"logonUrl" : "http://my.site.com/login.html",
+ 			"importedCapFiles" : [],
+ 			"importNewCapFiles" : [],
+ 			"throwArayPacketsWithoutSessionID": YES,
+ 			"sessionList" : ['Project 1_1', 'Project 1_2']},
+		{	"projectName" : "Project 2",
+ 			"sessionIdentifierKey" : "jsessionid",
+ 			"logonUrl" : "http://my.site2.com/login.html",
+ 			"importedCapFiles" : [],
+ 			"importNewCapFiles" : [], 
+ 			"throwArayPacketsWithoutSessionID": NO,
+ 			"sessionList" : []}
 ];
